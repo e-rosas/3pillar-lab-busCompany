@@ -111,7 +111,7 @@ GO
 
 -- DELETE
 
-CREATE PROCEDURE spDeleteTowns  @ID_town int
+CREATE PROCEDURE spDeleteTowns @ID_town int
 AS
 DELETE Town
 WHERE ID = @ID_town
@@ -145,6 +145,18 @@ CREATE PROCEDURE spDeleteDrivers @ID_driver int
 AS
 DELETE Driver
 WHERE ID = @ID_driver
+GO
+
+CREATE PROCEDURE spDeleteJourneyFromTown @ID_journey int, @ID_town int
+AS
+DELETE Journey_town
+WHERE ID_journey = @ID_journey AND ID_town = @ID_town
+GO
+
+CREATE PROCEDURE spDeleteJourneyFromRoute @ID_journey int, @ID_route int
+AS
+DELETE Route_journey
+WHERE ID_journey = @ID_journey AND ID_route = @ID_route
 GO
 
 CREATE PROCEDURE spDeleteRouteLog @ID_route_log int

@@ -288,7 +288,6 @@ FROM            dbo.Route INNER JOIN
                          dbo.Journey ON dbo.Route_journey.ID_journey = dbo.Journey.ID INNER JOIN
                          dbo.Journey_town ON dbo.Journey.ID = dbo.Journey_town.ID_journey INNER JOIN
                          dbo.Town ON dbo.Journey_town.ID_town = dbo.Town.ID
-				ORDER BY Route
 GO
 
 --Journeys, towns and their garages
@@ -299,5 +298,10 @@ FROM            dbo.Journey INNER JOIN
                          dbo.Journey_town ON dbo.Journey.ID = dbo.Journey_town.ID_journey INNER JOIN
                          dbo.Town ON dbo.Journey_town.ID_town = dbo.Town.ID INNER JOIN
                          dbo.Garage ON dbo.Town.ID = dbo.Garage.ID_town
-				ORDER BY Name
 GO
+
+SELECT * FROM ViewBusTypeAndRoute;
+SELECT * FROM ViewGarageAndTown;
+SELECT * FROM ViewJourneyTownsAndGarages;
+SELECT * FROM ViewRouteJourneyAndDrivers;
+SELECT * FROM ViewRouteJourneysAndTowns;

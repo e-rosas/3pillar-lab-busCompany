@@ -7,11 +7,11 @@ EXEC spInsertTowns @name = 'Blueshell';
 EXEC spInsertGarages @name = 'Tom`s Garage', @capacity = 15, @ID_town = 6;
 EXEC spInsertGarages @name = 'Red`s Garage', @capacity = 35, @ID_town = 7;
 
-EXEC spInsertBusTypes @name = 'Cruise';
-EXEC spInsertBusTypes @name = 'Guide';
+EXEC spInsertBusTypes @description = 'Cruise';
+EXEC spInsertBusTypes @description = 'Guide';
 
-EXEC spInsertRoutes @name = 'Route 60', @Description = 'From Dayland to Montgomery';
-EXEC spInsertRoutes @name = 'Route 70', @Description = 'From Montgomery to Blueshell';
+EXEC spInsertRoutes @name = 'Route 60', @description = 'From Dayland to Montgomery';
+EXEC spInsertRoutes @name = 'Route 70', @description = 'From Montgomery to Blueshell';
 
 EXEC spInsertJourneys @name = 'Dayland-Montgomery';
 EXEC spInsertJourneys @name = 'Montgomery-Blueshell';
@@ -37,13 +37,13 @@ EXEC spUpdateTowns @name = 'Waverly FT', @ID_town = 1
 
 EXEC spUpdateGarages @name = 'Parker`s Garage', @capacity = 25, @ID_town = 5, @ID_garage = 5;
 
-EXEC spInsertBusTypes @name = 'Cruise VIP', @ID_bus_type = 6;
+EXEC spUpdateBusTypes @description = 'Cruise VIP', @ID_bus_type = 6;
 
-EXEC spUpdateRoutes @name = 'Route 61', @Description = 'From Dayland to Montgomery', @ID_route = 6;
+EXEC spUpdateRoutes @name = 'Route 61', @description = 'From Dayland to Montgomery', @ID_route = 6;
 
 EXEC spUpdateJourneys @name = 'Dayland-Montgomery, v2', @ID_journey = 6;
 
-EXEC spUpdateDrivers @name = 'Johnny G.', @Telephone = '0345678765', @Address = '45th St.', @ID_journey = 6;
+EXEC spUpdateDrivers @name = 'Johnny G.', @Telephone = '0345678765', @Address = '45th St.', @ID_journey = 6, @ID_driver = 6;
 
 EXEC spUpdateRouteLog @date = '09-22-2021', @pass_average = 35, @ID_route = 6, @ID_route_log = 6;
 
@@ -56,7 +56,7 @@ EXEC spDeleteRouteLog @ID_route_log = 7;
 
 EXEC spDeleteDrivers @ID_driver = 7;
 
-EXEC spDeleteJourneyFromTown @ID_journey = 7, @ID_town = 7,
+EXEC spDeleteJourneyFromTown @ID_journey = 7, @ID_town = 7;
 
 EXEC spDeleteJourneyFromRoute @ID_route = 7, @ID_journey = 7;
 
@@ -68,7 +68,7 @@ EXEC spDeleteBusTypes @ID_bus_type = 7;
 
 EXEC spDeleteGarages @ID_garage = 7;
 
-EXEC spDeleteTowns @ID_town = 7
+EXEC spDeleteTowns @ID_town = 7;
 
 --READ
 EXEC spSelectTowns;
